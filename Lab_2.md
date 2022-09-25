@@ -5,7 +5,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 # Desarrollo de la solución
 
-> **Topología física en racks:**
+## Topología física en racks:
 
 >![Terminal PC](/pics/imagenrack.png)
 
