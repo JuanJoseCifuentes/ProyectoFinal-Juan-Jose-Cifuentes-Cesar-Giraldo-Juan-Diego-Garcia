@@ -5,6 +5,8 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 # Desarrollo de la solución
 
+A continuación, vamos a documentar todo el proceso que se llevó a cabo para el desarrollo del laboratorio, incluyendo la disposición de los dispostivos a nivel físico y lógico, el cálculo de subneteo que nos proporcionó las redes que utilizamos para cada VLAN, y la configuración de cada dispositivo, junto con las verificaciones que se nos pide en la guía de laboratorio.
+
 ## Topología física en racks:
 >
 >Utilizando el espacio de cableado estructurado realizado en el Workshop #4, conectamos los diferentes PCs a los switchs que les corresponden según lo pedido en la guía de laboratorio. El puerto fa0/1 no fue utilizado en ningún caso puesto que, dentro de la tabla de interfaces, no se le otorga ninguna VLAN, y por tanto no sirve para realizar conexiones troncales. Notese que, para cada switch, los puertos utilizados para la conexión de los PCs pertenecen siempre al mismo rango VLAN, aunque sean distintos para cada uno.
