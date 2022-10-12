@@ -112,7 +112,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 >### Verificación de asignaciones IP a las interfaces NIC de los PC 
 >
->Debemos de ir al command prompt en el desktop del PC deseado, para este caso verificaremos el PC 1, que en nuestro caso basados en la tabla 1 debe ser 10.5.30.7 usando el comando `Ipconfig` . 
+>Debemos de ir al command prompt en el desktop del PC deseado, para este caso verificaremos los PC 4,3,2 y 1 para poder ver las direcciones en las diferentes VLANs y redes, las direcciones usadas son las planteadas en el subneteo de la tabla 1 comando `Ipconfig` . 
 Debemos fijarnos en la IPv4.1
 >
 >![Terminal PC](/pics/imagen1.png)
