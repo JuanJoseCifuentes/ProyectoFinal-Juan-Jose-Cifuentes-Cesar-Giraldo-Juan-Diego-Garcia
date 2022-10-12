@@ -106,6 +106,8 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >[OK]
 >```
 >Este proceso se repite en cada switch.
+>El resultado final puede verse pasando el mouse sobre un switch. La ventana emergente, en la que podemos comprobar rápidamente la asignación de las VLAN, se vea sí:
+>![Terminal PC](/pics/imagen1.png)
 # Verificaciones
 
 >### Verificación de asignaciones IP a las interfaces NIC de los PC 
