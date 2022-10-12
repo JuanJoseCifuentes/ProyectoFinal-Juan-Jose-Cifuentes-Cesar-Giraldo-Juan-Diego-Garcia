@@ -25,89 +25,93 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >```
 >Una vez entramos en este modo, asignamos hostname, contraseña en la consola, además de contraseña en el caso de una conexión remota por Telnet.
 >```
->Switch(config)#hostname Switch3
->Switch3(config)#line console 0
->Switch3(config-line)#password cisco
->Switch3(config-line)#login
->Switch3(config-line)#exit
->Switch3(config)#
->Switch3(config-line)#password cisco
->Switch3(config-line)#login
->Switch3(config-line)#exit
+>Switch(config)#hostname SW1
+>SW1(config)#line console 0
+>SW1(config-line)#password cisco
+>SW1(config-line)#login
+>SW1(config-line)#exit
+>SW1(config)#
+>SW1(config-line)#password cisco
+>SW1(config-line)#login
+>SW1(config-line)#exit
 >```
 >Ahora debemos asignar, la default gateway, el banner y hacer un shutdown a todas las interfaces del switch, incluidas las GigabitEthernet.
 >```
->Switch3(config)#ip default-gateway 10.6.99.1
->Switch3(config)#banner motd #Buenos Dias Usuario#
->Switch3(config)#interface range fa0/1-24
->Switch3(config-if-range)#shutdown
->Switch3(config-if-range)#exit
->Switch3(config)#interface range Gi0/1-2
->Switch3(config-if-range)#shutdown
->Switch3(config-if-range)#exit
+>SW1(config)#ip default-gateway 190.35.0.1
+>SW1(config)#banner motd #Se encuentra configurando el Switch 1. Ingrese la contrasena.#
+>SW1(config)#interface range fa0/1-24
+>SW1(config-if-range)#shutdown
+>SW1(config-if-range)#exit
+>SW1(config)#interface range Gi0/1-2
+>SW1(config-if-range)#shutdown
+>SW1(config-if-range)#exit
 >```
 >Asignamos enlaces "trunk" y los mandamos a la vlan nativa 99. También los dejamos activados.
 >```
->Switch3(config)#interface range fa0/1-5
->Switch3(config-if-range)#switchport mode trunk
->Switch3(config-if-range)#switchport trunk native vlan 99
->Switch3(config-if-range)#no shutdown 
->Switch3(config-if-range)#exit
+>SW1(config)#interface range fa0/2-6
+>SW1(config-if-range)#switchport mode trunk
+>SW1(config-if-range)#switchport trunk native vlan 99
+>SW1(config-if-range)#no shutdown 
+>SW1(config-if-range)#exit
 >```
 >A continuación creamos las VLANs y las nombramos. 
 >```
->Switch3(config)#vlan 30
->Switch3(config-vlan)#name Tecnologia
->Switch3(config-vlan)#vlan 10
->Switch3(config-vlan)#name Tesoreria
->Switch3(config-vlan)#vlan 15
->Switch3(config-vlan)# name Marketing
->Switch3(config-vlan)#vlan 99
->Switch3(config-vlan)#name vlan99
->Switch3(config-vlan)#exit
+>SW1(config)#vlan 35
+>SW1(config-vlan)#name Biblioteca
+>SW1(config-vlan)#vlan 20
+>SW1(config-vlan)#name Estudiantes
+>SW1(config-vlan)#vlan 40
+>SW1(config-vlan)#name CuerpoDocente
+>SW1(config-vlan)#vlan 55
+>SW1(config-vlan)#name ServicioTecnico
+>SW1(config-vlan)#vlan 99
+>SW1(config-vlan)#name NATIVA
+>SW1(config-vlan)#exit
 >```
->Asignamos las interfaces, a las respectivas VLANs basados en las indicaciones dadas por el profesor.
+>Asignamos las interfaces, a las respectivas VLANs basados en las indicaciones de la tabla presentada en la guía de laboratorio.
 >```
->Switch3(config)#interface range fastEthernet0/6-9
->Switch3(config-if-range)#Switchport access vlan 30
->Switch3(config-if-range)#exit
->Switch3(config)#interface range fa0/10-12
->Switch3(config-if-range)#Switchport access vlan 15
->Switch3(config-if-range)#exit
->Switch3(config)#interface range fa0/13-24
->Switch3(config-if-range)#switchport access vlan 10
->Switch3(config-if-range)#exit
->Switch3(config)#interface range fa0/1-5
->Switch3(config-if-range)#switchport access vlan 99
->Switch3(config-if-range)#exit
+>SW1(config)#interface range fa0/7-10
+>SW1(config-if-range)#Switchport access vlan 35
+>SW1(config-if-range)#exit
+>SW1(config)#interface range fa0/11-15
+>SW1(config-if-range)#Switchport access vlan 20
+>SW1(config-if-range)#exit
+>SW1(config)#interface range fa0/16-20
+>SW1(config-if-range)#switchport access vlan 40
+>SW1(config-if-range)#exit
+>SW1(config)#interface range fa0/21-24
+>SW1(config-if-range)#switchport access vlan 55
+>SW1(config-if-range)#exit
+>SW1(config)#interface range fa0/2-6
+>SW1(config-if-range)#switchport access vlan 99
+>SW1(config-if-range)#exit
 >```
 >Ahora asignamos una IP al switch, con la máscara de red, esto en la VLAN 99.
 >```
->Switch3(config)#interface vlan 99
->Switch3(config-if)#ip address 10.6.99.4   255.255.255.0
->Switch3(config-if)#exit
+>SW1(config)#interface vlan 99
+>SW1(config-if)#ip address 190.35.0.2   255.255.255.0
+>SW1(config-if)#exit
 >```
->Volvemos a activar las interfaces de todo el switch.
+>Volvemos a activar las interfaces de todo el switch, menos la interfaz 1, que se ignora según la tabla de la guía de laboratorio.
 >```
->Switch3(config)#interface range fa0/6-24
->Switch3(config-if-range)#no shutdown
->Switch3(config-if-range)#exit
->Switch3(config)#interface range Gi0/1-2
->Switch3(config-if-range)#no shutdown
->Switch3(config-if-range)#exit
+>SW1(config)#interface range fa0/7-24
+>SW1(config-if-range)#no shutdown
+>SW1(config-if-range)#exit
+>SW1(config)#interface range Gi0/1-2
+>SW1(config-if-range)#no shutdown
+>SW1(config-if-range)#exit
 >```
->Ponemos la contraseña de el enable y guardamos la configuración.
+>Ponemos la contraseña del enable y guardamos la configuración.
 >```
->Switch3(config)#enable password cisco
->Switch3(config)#exit
->Switch3#copy running-config startup-config 
+>SW1(config)#enable password cisco
+>SW1(config)#exit
+>SW1#copy running-config startup-config 
 >Destination filename [startup-config]? 
 >Building configuration...
 >[OK]
 >```
->Este proceso se repite en cada switch.
->El resultado final puede verse pasando el mouse sobre un switch. La ventana emergente, en la que podemos comprobar rápidamente la asignación de las VLAN, se vea sí:
->![Terminal PC](/pics/imagen1.png)
+>Este proceso se repite en cada switch. El resultado final puede verse pasando el mouse sobre uno cualquiera. La ventana emergente, en la que podemos comprobar rápidamente la asignación de las VLAN, se ve así:
+>![Terminal PC](/pics/vistaswitch.png)
 # Verificaciones
 
 >### Verificación de asignaciones IP a las interfaces NIC de los PC 
