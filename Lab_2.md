@@ -9,6 +9,10 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 >![Terminal PC](/pics/imagenrack.png)
 
+## Topología lógica:
+
+>![Terminal PC](/pics/imagenlogica.png)
+
 >
 # Configuraciones
 > **Configuración básica switch y creación de VLANs**
