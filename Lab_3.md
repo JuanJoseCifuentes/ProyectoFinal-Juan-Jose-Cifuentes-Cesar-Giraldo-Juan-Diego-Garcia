@@ -174,6 +174,11 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >Para comprobar rápidamente que la configuración haya sido exitosa, podemos pasar el mouse sobre el router unos segundos, y así ver sus subinterfaces y direcciones asignadas. Para este laboratorio, esta ventana se ve así:
 >
 >![Terminal PC](/pics/vistarouter.png)
+>
+>
+> **Configuración del PC - Asignación de direcciones IP:**
+>Puesto que no tenemos un servidor DHCP en este laboratorio, todas las direcciones IPv4 de los PCs deben configurarse manualmente. A continuación, se puede ver como se configuró cada una, usando la dirección, máscara y puerta de enlace que le corresponde a cada PC según la tabla obtenida en el proceso de subneteo. El ejemplo mostrado corresponde a la configuración del PC6.
+>![Terminal PC](/pics/vistapc.png)
 
 
 # Verificaciones
