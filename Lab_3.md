@@ -178,6 +178,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >
 > **Configuración del PC - Asignación de direcciones IP:**
 >Puesto que no tenemos un servidor DHCP en este laboratorio, todas las direcciones IPv4 de los PCs deben configurarse manualmente. A continuación, se puede ver como se configuró cada una, usando la dirección, máscara y puerta de enlace que le corresponde a cada PC según la tabla obtenida en el proceso de subneteo. El ejemplo mostrado corresponde a la configuración del PC6.
+>
 >![Terminal PC](/pics/vistapc.png)
 
 
