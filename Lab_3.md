@@ -19,7 +19,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 >
 # Configuraciones
-> **Configuración básica switch y creación de VLANs**
+> **Configuración del Switch - Básica y Creación VLAN:**
 >
 >Debemos primero entrar en la configuración del dispositivo, por lo que debemos entrar en modo de ejecución
 >
@@ -117,6 +117,65 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >Este proceso se repite en cada switch. El resultado final puede verse pasando el mouse sobre uno cualquiera. La ventana emergente, en la que podemos comprobar rápidamente la asignación de las VLAN, se ve así:
 >
 >![Terminal PC](/pics/vistaswitch.png)
+>
+>
+> **Configuración del Router - Básica y Encapsulación:**
+>
+>Al igual que con el switch, la conexión básica consiste en asignar nombre, contraseñas de consola, telnet y enable y banner. 
+>
+>```
+>Router>enable
+>Router#configure terminal 
+>Router(config)#hostname R1
+>R1(config)#line console 0
+>R1(config-line)#password cisco
+>R1(config-line)#login
+>R1(config-line)#exit
+>R1(config)#
+>R1(config-line)#password cisco
+>R1(config-line)#login
+>R1(config-line)#exit
+>R1(config)#enable password cisco
+>R1(config)#banner motd #Se encuentra configurando el Router. Ingrese la contrasena.#
+>```
+>Una vez hecho esto, encendemos la interfaz que estamos usando en el laboratorio (fa0/1).
+>```
+>R1(config)#interface fa0/1
+>R1(config-if)#no shutdown
+>R1(config-if)#exit
+>```
+>Ahora, se crean las subinterfaces (una por VLAN usada), se les asigna prtocolo de encapsulación y se configura su dirección IP.
+>```
+>R1(config)#interface fa0/1.35
+>R1(config-if)#encapsulation dot1q 35
+>R1(config-if)#ip address 190.35.1.1   255.255.255.0
+>R1(config-if)#interface fa0/1.20
+>R1(config-if)#encapsulation dot1q 20
+>R1(config-if)#ip address 190.35.2.1   255.255.255.0
+>R1(config-if)#interface fa0/1.40
+>R1(config-if)#encapsulation dot1q 40
+>R1(config-if)#ip address 190.35.3.1   255.255.255.0
+>R1(config-if)#interface fa0/1.55
+>R1(config-if)#encapsulation dot1q 55
+>R1(config-if)#ip address 190.35.4.1   255.255.255.0
+>R1(config-if)#interface fa0/1.99
+>R1(config-if)#encapsulation dot1q 99 native
+>R1(config-if)#ip address 190.35.0.1   255.255.255.0
+>```
+>Hecho esto, podemos guardar la configuración.
+>```
+>R1(config)#enable password cisco
+>R1(config)#exit
+>R1#copy running-config startup-config 
+>Destination filename [startup-config]? 
+>Building configuration...
+>[OK]
+>```
+>Para comprobar rápidamente que la configuración haya sido exitosa, podemos pasar el mouse sobre el router unos segundos, y así ver sus subinterfaces y direcciones asignadas. Para este laboratorio, esta ventana se ve así:
+>
+>![Terminal PC](/pics/vistarouter.png)
+
+
 # Verificaciones
 
 >### Verificación de asignaciones IP a las interfaces NIC de los PC 
