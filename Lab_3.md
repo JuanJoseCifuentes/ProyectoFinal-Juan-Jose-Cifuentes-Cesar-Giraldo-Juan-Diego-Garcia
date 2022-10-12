@@ -28,7 +28,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >
 >Habiendo encontrado los rangos, asignamos a cada uno una VLAN, junto con el número, interfaces y nombre que se especificaron en la guía de laboratorio. El resultado se ve a continuación:
 >
->![Terminal PC](/pics/imagenredesvlan.png)
+>![Terminal PC](/pics/imagenvlan.png)
 >
 >Por último, nos dispusimos a construir la tabla de direcciones para cada dispositivo del sistema, de ahora en adelante nos referiremos a ella como Tabla 1. Tuvimos cuidado de asignar a cada computador una dirección y puerta de enlace perteneciente a su VLAN correspondiente, y a cada switch se le asignó una dirección de la VLAN 99. Para finalizar, nótese que las direcciones usadas en 0 no fueron utilizadas para nada, pues representan el ID de la red, y las direcciones terminadas en 1 fueron reservadas únicamente para las puertas de enlace, es decir, las subinterfaces del router 1.
 >
