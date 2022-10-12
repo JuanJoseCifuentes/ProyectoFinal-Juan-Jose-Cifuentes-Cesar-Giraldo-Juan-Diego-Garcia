@@ -19,7 +19,9 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 
 ## Subneteo:
 >El interés principal de este laboratorio era la aplicación de subneteo para la creación manual de las VLAN requeridas. Para este propósito, se nos proporcionó el rango de IP 190.35.0.0/16 y se nos encomendó con crear nuestra propia propuesta para acomodar las necesidades de nuestro cliente, las cuales eran primero, tener como mínimo 5 redes, y segundo, permitir al menos 254 hosts en cada red.
+>
 >Para empezar, tuvimos que definir el criterio bajo el cual vamos a dividir el rango de IP. Al final, nos decidimos por usar el número de hosts como criterio, puesto que de haber utilizado el número de redes, habríamos tenido que dividir el rango en 8 redes, cada una con miles de hosts disponibles, y puesto que tan solo necesitamos 254 hosts por red, habría resultado en un uso muy ineficiente del rango original, además de limitar la posible expansión de la red en un futuro.
+>
 >Una vez hecho esto, representamos el número de hosts necesarios por red (254) como binario, y encontramos que nuestro identificador, es decir, el número de bits necesarios para esto, era 8. Posteriormente, representamos la máscara del rango (255.255.0.0) en binario, y reservando 8 ceros, debido a nuestro identificador, reemplazamos el resto de la máscara por unos, lo que resultó en una máscara de clase C (255.255.255.0). Por último, visto que el bit menos significativo cambiado era el 2^0 del tercer octeto, empezamos a sumar este valor a la red original, para encontrar los rangos que usaremos en este laboratorio. Estos rangos pueden verse en la siguiente captura.
 >
 >![Terminal PC](/pics/imagenredes.png)
@@ -29,6 +31,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >![Terminal PC](/pics/imagenredesvlan.png)
 >
 >Por último, nos dispusimos a construir la tabla de direcciones para cada dispositivo del sistema, de ahora en adelante nos referiremos a ella como Tabla 1. Tuvimos cuidado de asignar a cada computador una dirección y puerta de enlace perteneciente a su VLAN correspondiente, y a cada switch se le asignó una dirección de la VLAN 99. Para finalizar, nótese que las direcciones usadas en 0 no fueron utilizadas para nada, pues representan el ID de la red, y las direcciones terminadas en 1 fueron reservadas únicamente para las puertas de enlace, es decir, las subinterfaces del router 1.
+>
 >La Tabla 1. puede verse a continuación.
 >
 >![Terminal PC](/pics/tabla.png)
