@@ -6,11 +6,15 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 # Desarrollo de la solución
 
 ## Topología física en racks:
-
+>
+>Utilizando el espacio de cableado estructurado realizado en el Workshop #4, conectamos los diferentes PCs a los switchs que les corresponden según lo pedido en la guía de laboratorio. El puerto fa0/1 no fue utilizado en ningún caso puesto que, dentro de la tabla de interfaces, no se le otorga ninguna VLAN, y por tanto no sirve para realizar conexiones troncales. Notese que, para cada switch, los puertos utilizados para la conexión de los PCs pertenecen siempre al mismo rango VLAN, aunque sean distintos para cada uno.
+>
 >![Terminal PC](/pics/imagenrack.png)
 
 ## Topología lógica:
-
+>
+>Se presenta una captura de la vista lógica del laboratorio. Notese que cada PCs se conecta en una VLAN diferente, a pesar de que esta vista no permite representar esto.
+>
 >![Terminal PC](/pics/imagenlogica.png)
 
 >
@@ -111,6 +115,7 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >[OK]
 >```
 >Este proceso se repite en cada switch. El resultado final puede verse pasando el mouse sobre uno cualquiera. La ventana emergente, en la que podemos comprobar rápidamente la asignación de las VLAN, se ve así:
+>
 >![Terminal PC](/pics/vistaswitch.png)
 # Verificaciones
 
