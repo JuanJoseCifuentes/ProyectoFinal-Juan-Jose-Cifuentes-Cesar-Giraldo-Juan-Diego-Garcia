@@ -126,16 +126,13 @@ Debemos fijarnos en la IPv4.
 >
 >![Terminal PC](/pics/imgIP_pc4.png)
 >
->Comprobaremos con el PC 6 donde el debe ser 10.5.10.
->
->![Terminal PC](/pics/imagen2.png)
 >
 > ### Verificación de la creación y configuración de las VLAN
 >
 >Para verificar que las vlans fueron creadas y están asignadas correctamente, nos dirigimos a cualquier switch. Ya que cada uno fue configurado individualmente de la misma forma. No usamos de Virtual Trunk Protocol (VTP) para configurar varios switches a la vez. 
 El comando de cisco `show vlan brief` luego de ingresar la contraseña del switch nos dará la información requerida.
 >
->![Terminal PC](/pics/imagen3.png)
+>![Terminal PC](/pics/imgVLAN.png)
 >
 > ### Verificación de conectividad entre PCs en la misma VLAN
 >
