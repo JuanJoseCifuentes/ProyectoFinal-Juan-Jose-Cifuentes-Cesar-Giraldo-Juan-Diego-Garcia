@@ -115,16 +115,16 @@ Así, en el presente informe nos disponemos a documentar todo el proceso de crea
 >Debemos de ir al command prompt en el desktop del PC deseado, para este caso verificaremos los PC 4, 3, 2 y 1 para poder ver las direcciones en las diferentes VLANs y redes, las direcciones usadas son las planteadas en el subneteo de la tabla 1 comando `Ipconfig` . 
 Debemos fijarnos en la IPv4.
 >
->![Terminal PC](/pics/img-pc1.png)
+>![Terminal PC](/pics/img_pc1.png)
 >
 >
->![Terminal PC](/pics/img-pc2.png)
+>![Terminal PC](/pics/img_pc2.png)
 >
 >
->![Terminal PC](/pics/img-pc3.png)
+>![Terminal PC](/pics/img_pc3.png)
 >
 >
->![Terminal PC](/pics/img-pc4.png)
+>![Terminal PC](/pics/img_pc4.png)
 >
 >Comprobaremos con el PC 6 donde el debe ser 10.5.10.
 >
