@@ -255,7 +255,7 @@ El comando de cisco `show vlan brief` luego de ingresar la contraseña del switc
 >>
 >>**PC a Router** 
 >>>
->>Con ayuda del comando “telnet” seguido de la IP del dispositivo al que queremos hacer conexión remota podremos conectarnos directamente, como podemos observar en la imagen, nos mandó el banner que configuramos y nos da acceso al terminal del dispositivo.
+>>Con ayuda del comando `telnet` seguido de la IP del dispositivo al que queremos hacer conexión remota podremos conectarnos directamente, como podemos observar en la imagen, nos mandó el banner que configuramos y nos da acceso al terminal del dispositivo.
 >>
 >>![Terminal PC](/pics/img_Router.png)
 >
