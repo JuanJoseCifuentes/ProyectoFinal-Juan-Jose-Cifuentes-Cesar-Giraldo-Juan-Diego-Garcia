@@ -257,13 +257,13 @@ El comando de cisco `show vlan brief` luego de ingresar la contraseña del switc
 >>>
 >>Con ayuda del comando “telnet” seguido de la IP del dispositivo al que queremos hacer conexión remota podremos conectarnos directamente, como podemos observar en la imagen, nos mandó el banner que configuramos y nos da acceso al terminal del dispositivo.
 >>
->>![Terminal PC](/pics/img_router.png)
+>>![Terminal PC](/pics/img_Router.png)
 >
 >>**PC a switch**
 >>
 >>Usamos el mismo comando, pero usamos las IP de los switches. En la imagen podemos ver cómo accedemos remotamente desde el PC5 a todos los switches sin problema.
 >>
->>![Terminal PC](/pics/img_switch.png)
+>>![Terminal PC](/pics/img_Switch.png)
 >
 # Análisis de tráfico:
 ## Conectividad entre dos PCs en la misma VLAN:
