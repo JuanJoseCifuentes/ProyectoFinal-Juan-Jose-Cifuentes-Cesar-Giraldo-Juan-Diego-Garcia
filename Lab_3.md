@@ -324,11 +324,12 @@ Obviamente, para la realización del laboratorio se utilizaron múltiples protoc
 
 # Desafíos afrontados:
 
-Como viene siendo habitual, uno de los principales desafíos que tuvimos desarrollando el laboratorio fue la inconsistencia de Cisco Packet Tracer como entorno de trabajo. En más de una ocasión tuvimos que detener el progreso en el laboratorio para intentar encontrar un error que no estaba allí, y que solo se solucionaba después de cerrar y volver a abrir la aplicación. Por supuesto, esto complicó enormemente la búsqueda de errores, puesto que nunca estábamos seguros de si había un error nuestro o era tan solo un error del entorno de trabajo.
+En el desarrollo de este laboratorio, sorpresivamente la cantidad de errores o comportamientos inesperados disminuyó drasticamente, ya que entendemos mucho mas todo el entorno de Cisco Packet Tracer. 
 
-Otro pequeño detalle que vale la pena mencionar, fue la confusión que tuvimos con las ID’s de red de las diferentes VLAN’s. Para la configuración del router, a la hora definir las direcciones IP junto a sus máscaras de subred que debía tener cada VLAN, tardamos mucho en comprender que la ID de la red que se nos daba en el documento guía no era la IP deseada, y que la verdadera IP a aplicar debía corresponder a la primera dirección posible dada la ID de la red (a efectos prácticos, cambiando el último dígito por un 1).
+El mayor desafío fue el subneteo, donde aplicamos los conocimientos vistos en clase, pero bajo unas condiciones muy distintas, ademas dándonos a nosotros la libertad de determinar cuál era la mejor opcion o en este caso cual era la mas optima. Ademas de que cómo quedaron las redes, ya no nos guiábamos por el número de la VLAN en la IP, si no por la determinada en el rango. Estas confusiones no significaron ningún problema, solo que sí alentaron todo el proceso.
 
-Por último, y aún más desafiante, tuvimos que aprender lo básico de configurar los dispositivos de red que se nos pedían, por mucho que pudiéramos guiarnos con la lista de comandos proporcionada, y familiarizarnos con comandos de red que nunca habíamos usado hasta este punto para poder realizar las verificaciones necesarias para este documento.
+Finalmente el proceso de configuración del router resulto confuso al principio ya que en anteriores laboratorios solo configuramos uno, por lo que no estabamos tan familiarizados, pero viendo nuestras notas del anterior laboratorio pudimos configurarlo sin percances.  
+
 
 # Conclusiones:
 
