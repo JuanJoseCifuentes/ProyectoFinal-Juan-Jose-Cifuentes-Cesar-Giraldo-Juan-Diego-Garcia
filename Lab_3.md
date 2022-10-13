@@ -322,9 +322,10 @@ Obviamente, para la realización del laboratorio se utilizaron múltiples protoc
 > **-Trunking (IEEE 802.1Q):** Este protocolo consiste en permitir a un switch o router transmitir la información perteneciente a múltiples VLAN usando una misma interfaz sirviéndose de las tags añadidas por el protocolo anteriormente mencionado.
 >Gracias al trunking, por el mismo cable puede transmitirse información de todas las VLAN necesarias, y puesto que el router ahora puede redireccionar tramas usando una sola interfaz, permite que las VLAN de una red se comuniquen entre ellas sin necesidad de separar físicamente los cables que transmiten la información a cada VLAN.
 
+
 # Desafíos afrontados:
 
-En el desarrollo de este laboratorio, sorpresivamente la cantidad de errores o comportamientos inesperados disminuyó drasticamente, ya que entendemos mucho mas todo el entorno de Cisco Packet Tracer. 
+En el desarrollo de este laboratorio, sorpresivamente la cantidad de errores o comportamientos inesperados disminuyó drasticamente, ya que entendemos mucho mas todo el entorno de Cisco Packet Tracer.
 
 El mayor desafío fue el subneteo, donde aplicamos los conocimientos vistos en clase, pero bajo unas condiciones muy distintas, ademas dándonos a nosotros la libertad de determinar cuál era la mejor opcion o en este caso cual era la mas optima. Ademas de que cómo quedaron las redes, ya no nos guiábamos por el número de la VLAN en la IP, si no por la determinada en el rango. Estas confusiones no significaron ningún problema, solo que sí alentaron todo el proceso.
 
@@ -333,14 +334,9 @@ Finalmente el proceso de configuración del router resulto confuso al principio 
 
 # Conclusiones:
 
-Este laboratorio nos ha servido en gran medida para poner en práctica los conocimientos teóricos vistos en este corte que aún no teníamos tan claros a nivel de aplicación en la realidad. Por supuesto, Cisco Packet Tracer es tan solo una herramienta de simulación, y no representa fielmente lo que es trabajar con estos dispositivos en la vida real, pero al menos nos permite poner forma desde 0 a conceptos hasta ahora puramente teóricos como lo eran las redes VLAN o el protocolo STP.
+Este laboratorio nos permitió afianzar aún más los conocimientos que se han manejado en el transcurso del curso ya que todos los conocimientos en esta materia se vuelven acumulativos, además que el manejo de cada uno de estos en una herramienta fundamental para el desarrollo de laboratorios, como el cableado estructurado, donde teniamos	
 
-Además, el laboratorio nos ha acercado a la realidad en cuanto a cableado estructurado se refiere, en concreto, a algunas buenas prácticas que deberían tenerse en cuenta cuando se trabaja con dispositivos de red reales en entornos como el armario de conexiones, como lo es el montaje de patch panels de interconexión para comunicar dispositivos a lo largo de racks diferentes.
-
-Otra habilidad que el laboratorio nos ha permitido desarrollar es la de detección y corrección de errores. Mediante las verificaciones propuestas por el documento guía pudimos verificar el buen funcionamiento de nuestra red paso por paso, y en caso de hallar algún error, fuimos forzados a servirnos de otros comandos de red y consola para encontrar que lo estaba causando, mejorando en definitiva nuestra capacidad de solucionar problemas en montajes de redes similares.
-
-Por último, y aunque no las pusimos a prueba con aplicaciones reales, el laboratorio nos enseña la versatilidad de las redes locales, y cómo puede aprovecharse al máximo el espacio, bien sea adquiriendo y disponiendo nuevos dispositivos de red o aplicando capas de software que dejan diversificar sus funciones, tema especialmente interesante para nuestra carrera.
-
+El subneteo nos permite optimizar las redes a condiciones específicas, esto nos ayuda a aprovechar los recursos que tenemos para darle es escalabilidad a la red en el caso tal se necesite.
 
 
 # Referencias:
