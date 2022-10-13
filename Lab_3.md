@@ -211,69 +211,45 @@ A continuación, vamos a documentar todo el proceso que se llevó a cabo para el
 >Debemos de ir al command prompt en el desktop del PC deseado, para este caso verificaremos los PC 4, 3, 2 y 1 para poder ver las direcciones en las diferentes VLANs y redes, las direcciones usadas son las planteadas en el subneteo de la tabla 1 comando `Ipconfig` . 
 Debemos fijarnos en la IPv4.
 >
->![Terminal PC](/pics/imgIP_pc1.png)
+>![Terminal PC](/pics/img-pc1.png)
 >
 >
->![Terminal PC](/pics/imgIP_pc2.png)
+>![Terminal PC](/pics/img-pc2.png)
 >
 >
->![Terminal PC](/pics/imgIP_pc3.png)
+>![Terminal PC](/pics/img-pc3.png)
 >
 >
->![Terminal PC](/pics/imgIP_pc4.png)
+>![Terminal PC](/pics/img-pc4.png)
 >
+> ### Verificación de la creación y configuración de las VLAN 
 >
-> ### Verificación de la creación y configuración de las VLAN
->
->Para verificar que las vlans fueron creadas y están asignadas correctamente, nos dirigimos a cualquier switch. Ya que cada uno fue configurado individualmente de la misma forma. No usamos de Virtual Trunk Protocol (VTP) para configurar varios switches a la vez. 
-El comando de cisco `show vlan brief` luego de ingresar la contraseña del switch nos dará la información requerida.
+>Para verificar qué las VLANs fueron creadas y están asignadas correctamente, nos dirigimos a cualquier switch. Ya que cada uno fue configurado individualmente de la misma forma. No usamos de Virtual Trunk Protocol (VTP) para configurar varios switches a la vez. 
+El comando de cisco `show vlan brief` luego de ingresar la contraseña del switch nos dará la información requerida, podemos ver cómo las interfaces fueron distribuidas entre las VLANs.
 >
 >![Terminal PC](/pics/imgVLAN.png)
 >
 > ### Verificación de conectividad entre PCs en la misma VLAN
 >
->Para verificar la conectividad debemos hacer un `ping` al IP del PC en la misma VLAN, para este caso usamos la de marketing, por lo que usaremos los PC 2 y 5. Desde el PC 2 en la command prompt hacemos `ping 10.5.15.24`
+>Para verificar la conectividad debemos hacer un `ping` al IP del PC en la misma VLAN, para este caso usamos la de biblioteca, por lo que usaremos los PC  8 y 12. Desde el PC 8 en la command prompt hacemos `ping 190.35.1.1` (IP del PC 12)
 >
->![Terminal PC](/pics/imagen4.png)
+>![Terminal PC](/pics/img_InterVLAN.png)
 >
->Como podemos ver, el host nos devuelve una respuesta de que la misma cantidad de paquetes enviados, fueron recibidos por lo que no hubo pérdida y tenemos conexión con el PC 5. También nos arroja la latencia de la conexión.
+>Como podemos ver, el host nos devuelve una respuesta de que la misma cantidad de paquetes enviados, fueron recibidos por lo que no hubo pérdida y tenemos conexión con el PC 12. También nos arroja la latencia de la conexión.
 >
 > ### Verificación de conexión con la puerta de enlace 
 >
->Para cada VLAN, en el router tenemos una puerta de enlace distinta (default gateway), por lo que podemos hacer la prueba dentro de esta, pero no es necesario ya que también podemos hacerlo a una diferente VLAN, a esto le llamamos comunicación intra-VLAN.
+>Para cada VLAN, en el router tenemos una puerta de enlace distinta (default gateway), por lo que podemos hacer la prueba dentro de esta, en este caso desde el PC 6 en la VLAN “Cuerpo docente/personal” nos conectaremos a su respectiva puerta de enlace 190.35.3.1 que se encuentra alojada en el Router.
 >
->![Terminal PC](/pics/imagen5.png)
+>![Terminal PC](/pics/img_ptEnlace.png)
 >
 > ### Verificación de conectividad entre dos PCs en VLANs distintas
 >
->Realizamos `ping` a un computador fuera de la VLAN de mercadeo, en este caso el PC 1, el cual está en la VLAN de tecnología, tiene una IP de 10.5.30.7.
+>Realizamos `ping` a un computador fuera de la VLAN, este proceso se le llama IntraVLAN , en este caso el PC 12, el cual está en la VLAN de biblioteca, y lo conectaremos con el PC 3, la cual esta en la VLAN Estudiantes y tiene una IP de 190.35.2.2.
 >
->![Terminal PC](/pics/imagen6.png)
+>![Terminal PC](/pics/img_IntraVLAN.png)
 >
->En este caso podemos ver que al hacer el ping por primera vez este manda un paquete broadcast para preguntar cual es la MAC de la IP destino, una vez la encuentra la IP destino va a enviar un mensaje unicast a IP host, en nuestro caso el paquete usado para hacer broadcast se pierde, pero una vez pasa esto todos los paquetes llegan, luego al volver a hacer ping al mismo host destino en otra VLAN, entra directo ya que tiene guardado la MAC destino. Una vez tenemos la conexión podemos decir que tenemos una comunicación intra-VLAN. 
->
-> ### Verificación del protocolo STP 
->
->Con el comando `show spanning-tree` podemos ver que está configurado, nos mostrará por VLAN el spanning tree pero si detallamos son los mismos valores ya que se están usando las mismas interfaces del router para hacerlo. 
->
->![Terminal PC](/pics/imagen7.png)
->
->Al usar de este comando podemos darnos cuenta que si no especificamos una VLAN nos mostrara la de todas, en esta el root ID nos dice que este es el puente raíz de toda la red, por lo que la información del root ID debe ser la misma para los otros switches (puentes). 
-Nos avisa que este es el puente raíz, y lo podemos comprobar fijándonos en que la dirección del `Bridge ID`, es la misma de la `Root ID` (cuadros verdes).
-Por último, vemos que los puertos están todos con el rol de designados, esto se debe a que estos puertos son el acceso más cercano (o en este caso directo) al root. 
->último,
->![Terminal PC](/pics/imagen8.png)
->
->Ahora al trabajar en el switch 2, vemos que el Root ID es el mismo que el del Bridge ID del switch 1, corroborando que ese es el puente raíz, también nos dice por cual puerto hace la conexión. Y en la conexión nos dice que este cumple el rol de root. Ya que este nos lleva al puente raíz, o es el camino al puente raíz, ya que podría ser un caso donde tengamos más de 3 switches. 
-Solo puede existir un puerto con rol de raíz, pero puede haber varios puertos designados, ya que estos pueden ser el camino a un puente raíz.
->
->![Terminal PC](/pics/imagen9.png)
->
->Por último en el switch 3 vemos que las interfaces de este nos muestra que la `Fa0/2` está siendo usada como designada, mientras que en el switch 2 no veíamos esta conexión, esto se debe a que esta es la conexión que está siendo bloqueada y al designar puertos busca la que tenga menor ID, a esta le asigna el designado, y a la otra lo bloquea por lo que no aparece.
->
->> **Designación del puente raíz:** 
-En STP el puente raíz es designado con BPDU (Bridge Protocol Data Units) en este cada switch manda una señal diciendo que él es el puente raíz, pero al final el que tiene la prioridad más baja, es que se denomina puente raíz, pero en este caso todos tienen la misma por lo que nos fijamos en la MAC, la dirección, si comprobamos las anteriores imágenes la dirección del puente (marcada en recuadro verde) la de menor valor es la del switch 1. Esta es la razón por la que el switch 1 es el puente raíz.
->
+>En este caso podemos ver que al hacer el ping por primera vez este manda un paquete broadcast para preguntar cual es la MAC de la IP destino, una vez la encuentra la IP destino va a enviar un mensaje unicast a IP host, en nuestro caso el paquete usado para hacer broadcast se pierde, pero una vez pasa esto todos los paquetes llegan, luego al volver a hacer ping al mismo host destino en otra VLAN, entra directo ya que tiene guardado la MAC destino.
 >
 > ## Verificación Telnet
 >>
@@ -281,14 +257,14 @@ En STP el puente raíz es designado con BPDU (Bridge Protocol Data Units) en est
 >>>
 >>Con ayuda del comando “telnet” seguido de la IP del dispositivo al que queremos hacer conexión remota podremos conectarnos directamente, como podemos observar en la imagen, nos mandó el banner que configuramos y nos da acceso al terminal del dispositivo.
 >>
->>![Terminal PC](/pics/imagen10.png)
+>>![Terminal PC](/pics/img_router.png)
 >
 >>**PC a switch**
 >>
 >>Usamos el mismo comando, pero usamos las IP de los switches. En la imagen podemos ver cómo accedemos remotamente desde el PC5 a todos los switches sin problema.
 >>
->>![Terminal PC](/pics/imagen11.png)
-
+>>![Terminal PC](/pics/img_switch.png)
+>
 # Análisis de tráfico:
 ## Conectividad entre dos PCs en la misma VLAN:
 >![Terminal PC](/pics/imagen_an_1.png)
