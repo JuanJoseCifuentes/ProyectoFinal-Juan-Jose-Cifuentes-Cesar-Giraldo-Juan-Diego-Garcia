@@ -231,9 +231,9 @@ El comando de cisco `show vlan brief` luego de ingresar la contraseña del switc
 >
 > ### Verificación de conectividad entre PCs en la misma VLAN
 >
->Para verificar la conectividad debemos hacer un `ping` al IP del PC en la misma VLAN, para este caso usamos la de biblioteca, por lo que usaremos los PC  8 y 12. Desde el PC 8 en la command prompt hacemos `ping 190.35.1.1` (IP del PC 12)
+>Para verificar la conectividad debemos hacer un `ping` al IP del PC en la misma VLAN, para este caso usamos la de biblioteca, por lo que usaremos los PC  8 y 12. Desde el PC 8 en la command prompt hacemos `ping 190.35.1.4` (IP del PC 12)
 >
->![Terminal PC](/pics/img_InterVLAN.png)
+>![Terminal PC](/pics/img_InterVLAN2.png)
 >
 >Como podemos ver, el host nos devuelve una respuesta de que la misma cantidad de paquetes enviados, fueron recibidos por lo que no hubo pérdida y tenemos conexión con el PC 12. También nos arroja la latencia de la conexión.
 >
