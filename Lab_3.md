@@ -1,11 +1,9 @@
-  # Introducción
-A este punto del curso, las redes de datos son un concepto con el que estamos bien familiarizados. Ya que entendemos el funcionamiento general de la mayor parte de los dispositivos de red, y tenemos una idea sólida de los procesos que hay detrás de las primeras capas de la comunicación de datos a través del internet, en este laboratorio buscamos afianzar esos conocimientos sumando una extra capa de complejidad al ejercicio anterior de montar una red de área local, puesto que ahora, además de expandir el tamaño de la misma, ubicándonos en una sala que permite que hasta 20 dispositivos se conecten a una red, vamos a hacer un esfuerzo consciente por aplicar cableado estructurado a la red.
-No solo esto, en el espacio que antes nos habría servido para una sola red, se busca practicar la aplicación del software a la configuración de dispositivos de red, para poder tener múltiples de ellas. En concreto, se busca aplicar la configuración de VLAN, o redes de área local virtuales, sumado a la división física de redes mediante el cableado estructurado, para que nuestros propuestos usuarios puedan, desde el mismo espacio, acceder a una de 3 redes diferentes. De estas diferentes redes, la primera se trata de una red ajena a nuestro control, otra de configuración de dispositivos a través de cables de consola, y la última es nuestro interés principal en este laboratorio, que gracias a la configuración VLAN estará dividida a su vez en 4 subredes.
-Así, en el presente informe nos disponemos a documentar todo el proceso de creación de la red final presentada en el documento adjunto. Explicaremos brevemente la disposición física de nuestra red, incluyendo nuestro cableado estructurado, las diferentes configuraciones necesarias para la creación de subredes VLAN, y algunos de los comandos y protocolos que se usaron para el correcto funcionamiento y verificación de la red, a fin de demostrar un conocimiento profundo de los temas y competencias propuestas hasta este punto del curso.
+# Introducción
+A lo largo del curso hemos desarrollado habilidades y adquirido conocimientos que nos permiten en este momento montar topologías complejas tal y como la que se demuestra en este laboratorio. El objetivo principal, además de afianzar los conceptos de LAN, VLAN e IPV4, es entender mejor el Subneteo y ponerlo en práctica a la hora de cumplir con una tarea que se nos podría presentar en el mundo real, la cual consiste en cumplir con los requerimientos de red de un cliente, utilizando estos conocimientos para plantear la topología adecuada. Además de esto, en esta ocasión se aprovechó el proceso de redacción del documento para desempolvar nuestras habilidades en el uso de un software de control de versiones y de GitHub para trabajar de forma colaborativa.
 
 # Desarrollo de la solución
 
-A continuación, vamos a documentar todo el proceso que se llevó a cabo para el desarrollo del laboratorio, incluyendo la disposición de los dispostivos a nivel físico y lógico, el cálculo de subneteo que nos proporcionó las redes que utilizamos para cada VLAN, y la configuración de cada dispositivo, junto con las verificaciones que se nos pide en la guía de laboratorio.
+A continuación, vamos a documentar todo el proceso que se llevó a cabo para el desarrollo del laboratorio, incluyendo la disposición de los dispositivos a nivel físico y lógico, el cálculo de subneteo que nos proporcionó, las redes que empleamos para cada VLAN, y la configuración de cada dispositivo, junto con las verificaciones que se nos pide en la guía de laboratorio.
 
 ## Topología física en racks:
 >
@@ -313,16 +311,16 @@ Obviamente, para la realización del laboratorio se utilizaron múltiples protoc
 
 # Desafíos afrontados:
 
-En el desarrollo de este laboratorio, sorpresivamente la cantidad de errores o comportamientos inesperados disminuyó drasticamente, ya que entendemos mucho mas todo el entorno de Cisco Packet Tracer.
+En el desarrollo de este laboratorio, sorpresivamente la cantidad de errores o comportamientos inesperados disminuyó drásticamente, ya que entendemos mucho más todo el entorno de Cisco Packet Tracer.
 
-El mayor desafío fue el subneteo, donde aplicamos los conocimientos vistos en clase, pero bajo unas condiciones muy distintas, ademas dándonos a nosotros la libertad de determinar cuál era la mejor opcion o en este caso cual era la mas optima. Ademas de que cómo quedaron las redes, ya no nos guiábamos por el número de la VLAN en la IP, si no por la determinada en el rango. Estas confusiones no significaron ningún problema, solo que sí alentaron todo el proceso.
+El mayor desafío fue el subneteo, donde aplicamos los conocimientos vistos en clase, pero bajo unas condiciones muy distintas, además dándonos a nosotros la libertad de determinar cuál era la mejor opción o en este caso cuál era la más óptima. Además de que cómo quedaron las redes, ya no nos guiábamos por el número de la VLAN en la IP, sino por la determinada en el rango. Estas confusiones no significaron ningún problema, solo que sí alentaron todo el proceso.
 
-Finalmente el proceso de configuración del router resulto confuso al principio ya que en anteriores laboratorios solo configuramos uno, por lo que no estabamos tan familiarizados, pero viendo nuestras notas del anterior laboratorio pudimos configurarlo sin percances.  
+Finalmente, el proceso de configuración del router resulto confuso al principio, ya que en anteriores laboratorios solo configuramos uno, por lo que no estábamos tan familiarizados, pero viendo nuestras notas del anterior laboratorio pudimos configurarlo sin percances.  
 
 
 # Conclusiones:
 
-Este laboratorio nos permitió afianzar aún más los conocimientos que se han manejado en el transcurso del curso ya que todos los conocimientos en esta materia se vuelven acumulativos, además que el manejo de cada uno de estos en una herramienta fundamental para el desarrollo de laboratorios, como el cableado estructurado, donde teniamos	
+Este laboratorio nos permitió afianzar aún más los conocimientos que se han manejado en el transcurso del curso, puesto que todos los conocimientos en esta materia se vuelven acumulativos, además que el manejo de cada uno de estos en una herramienta fundamental para el desarrollo de laboratorios, como el cableado estructurado, donde teníamos	
 
 El subneteo nos permite optimizar las redes a condiciones específicas, esto nos ayuda a aprovechar los recursos que tenemos para darle es escalabilidad a la red en el caso tal se necesite.
 
@@ -334,5 +332,6 @@ El subneteo nos permite optimizar las redes a condiciones específicas, esto nos
 -[2] Sunny Classroom. Spanning Tree Protocol (IEEE 802 1D). (1 de julio de 2019). [Video en línea]. Disponible: https://www.youtube.com/watch?v=Ilpmn-H8UgE
 
 -[3]Sunny Classroom. How STP Elects Root Bridge with Hello BPDU? (7 de julio de 2019). [Video en línea]. Disponible: https://www.youtube.com/watch?v=BkGEwrzIK4g
+
 
 
