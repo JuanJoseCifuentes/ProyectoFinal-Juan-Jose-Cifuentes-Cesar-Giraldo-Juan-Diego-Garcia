@@ -269,41 +269,29 @@ El comando de cisco `show vlan brief` luego de ingresar la contraseña del switc
 ## Conectividad entre dos PCs en la misma VLAN:
 >![Terminal PC](/pics/imagen_an_1.png)
 >
->El paquete salió del PC1, llego al switch dos pasando por los nodos intermedios y luego desde ahi al switch 1, antes de pasar del switch 1 al Router, el paquete aun no sabia la dirección MAC a la que se dirigía.
+>El paquete salió del PC1 y tiene como destino el PC5, como se puede ver, ambos PCs pertenecen a la misma VLAN pues sus direcciones IP están dentro del rango de IP ‘190.35.4.x’, el cual corresponde a la VLAN 55. 
+>
+>El paquete paso por nodos intermedios, llego al switch 1, posteriormente al switch 2, y luego al PC5. Como se puede ver también se envió un paquete al PC9 debido a que este pertenece a la misma VLAN, pero este fue rechazado.
 >
 >![Terminal PC](/pics/imagen_an_2.png)
 >
->Una vez llega al Router, este lo dirige al switch 1, el cual es el puente raiz, de nuevo con la instrucción de que sea enviado al switch 3 y luego al PC4
->
 >Al Salir del PC4 se evidencia que el paquete esta siendo devuelto al PC1 pues se indica la Dirección Mac Destino, la cual coincide con la del PC1
 >
+## Conectividad con la puerta de enlace:
 >![Terminal PC](/pics/imagen_an_3.png)
 >
->Una vez regresa el paquete al PC1, se comprueba que existe conectividad entre el PC1 y el PC4. 
+>Como se evidencia aqui, el paquete fue enviado por el PC12, dirigido a la dirección IP de la default gateway. Posteriormente viaja a el switch 4, luego al switch 3 y finalmente al router. Luego toma el mismo camino de vuelta al PC12, así comprobando la conexión entre el PC12 y la default gateway.
 >
->Como resultado de este proceso, se hace innecesario volver a pasar por el router al enviar el siguiente paquete puesto que el PC1 ya conoce la dirección MAC del PC4. Así que el siguiente paquete solo pasa por los switches y llega directamente al PC4
->
-## Conectividad con la puerta de enlace:
+## Conectividad entre dos PCs en VLANs distintas:
 >![Terminal PC](/pics/imagen_an_4.png)
 >
->Como se evidencia aqui, el paquete enviado por el PC2 va dirigido a la dirección IP del Default Gateway, pero aun se desconoce la dirección MAC.
+>En este caso se esta haciendo ping desde el PC3 al PC12 puesto que estos pertenecen a la VLAN 35 y a la VLAN 20 respectivamente. 
+>
+>Inicialmente se lleva a cabo el protocolo ARP, por lo cual se envia un mensaje broadcast por todas las VLANs para encontrar la dirección MAC del PC12, por esta razón se pierde el primer paquete.
 >
 >![Terminal PC](/pics/imagen_an_5.png)
 >
->Una vez llega al puente raiz, este envia un mensaje broadcast a los dispositivos en la VLAN del PC2 para encontrar la dirección Mac de la IP del Gateway y obtiene una respuesta positiva del Router, por lo que envia un paquete de vuelta al PC2. Por otro lado, obtiene una respuesta negativa del PC5, por lo que el mensaje muere ahi.
->
->![Terminal PC](/pics/imagen_an_6.png)
->
->Tras conseguir la MAC del default gateway, el PC2 envía un mensaje de petición/respuesta directamente al Router, este lo devuelve y así se comprueba que existe una conexión exitosa.
->
-## Conectividad entre dos PCs en VLANs distintas:
->![Terminal PC](/pics/imagen_an_7.png)
->
->Inicialmente, debido al protocolo ARP, se envia un mensaje broadcast por todas las vlans para encontrar la dirección MAC del dispositivo que se esta buscando y por esta razón se pierde el primer paquete, la primera vez que se intenta generar la conexión entro dos dispositivos en diferentes VLANs.
->
->![Terminal PC](/pics/imagen_an_8.png)
->
->La segunda vez que se hace, solo se envían mensajes de petición/respuesta debido a que ya se conoce la dirección MAC del otro dispositivo y por ende la ruta que se debe tomar para llegar a este. 
+>Posteriormente, se comienzan a enviar solamente mensajes de peticion respuesta, puesto que, gracias al protocolo ARP, ya fue encontrada la direccion MAC del PC12. Estos paquetes son todos enviados y recibidos de manera exitosa, por lo que se comprueba la conexion entre el PC3 y el PC12.
 
 # Protocolos:
 
@@ -339,7 +327,7 @@ Este laboratorio nos permitió afianzar aún más los conocimientos que se han m
 El subneteo nos permite optimizar las redes a condiciones específicas, esto nos ayuda a aprovechar los recursos que tenemos para darle es escalabilidad a la red en el caso tal se necesite.
 
 
-# Referencias:
+# Bibliografía:
 
 -[1] J. Aranda, Cisco Switch - Basic Configuration. 2022.
 
