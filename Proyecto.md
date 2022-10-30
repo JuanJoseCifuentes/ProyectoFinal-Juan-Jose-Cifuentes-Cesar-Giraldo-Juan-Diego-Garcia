@@ -408,68 +408,56 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >ISP(config-router)#network 209.175.105.1
 >```
 
-
 # Verificaciones
 
->### Verificación de asignaciones IP a las interfaces NIC de los PC 
+>### Comunicación entre los usuarios de la misma VLAN en la red “Campus”  
 >
->Debemos de ir al command prompt en el desktop del PC deseado, para este caso verificaremos los PC 4, 3, 2 y 1 para poder ver las direcciones en las diferentes VLANs y redes, las direcciones usadas son las planteadas en el subneteo de la tabla 1 comando `Ipconfig` . 
-Debemos fijarnos en la IPv4.
+>Debemos de ir al command prompt en el desktop del PC deseado, usaremos la VLAN 55, desde el PC1 haremos `ping` a la IP dinamica del PC 5, que se encuentra en la misma VLAN, en este caso debemos revisar la IP del otro computador antes ya que esta es asignada automaticamente, puede variar. 
 >
->![Terminal PC](/pics/imgIP_pc1.png)
+>![Terminal PC](/pics/interVlan.png)
+>
+> ### Comunicación entre los usuarios pertenecientes a VLANs diferentes en la red “Campus”
+>
+>Repetimos el mismo procedimiento de usar el comando `ping` pero a partir de el PC3, que se encuentra en la VLAN 20, conectaremos al PC 12 en la VLAN 35. Como ya mencionamos la IP del dispositivo al que le realizamos el ping puede cambiar, por lo que no siempre este PC tendra esa misma IP. 
+>
+>![Terminal PC](/pics/intraVlan.png)
+>Como es de esperarse se pierde un paquete por el uso de ARP, pero esto no significa un problema con la conexión.
+>
+> ### Soportar el protocolo PVRST (Per VLAN Rapid Spanning Tree) y 802.1Q trunking en las LANs
+>
+>Los switches les agregamos el PVRST, el encapsulamiento mediante 802.1Q es en el router, y se configuro por cada una de las VLAN's
+>
+>![Terminal PC](/pics/RapidPerVlanSpaningTree.png)
+>![Terminal PC](/pics/Encapsulamiento.png)
 >
 >
->![Terminal PC](/pics/imgIP_pc2.png)
+>
+> ### Soportar el enrutamiento RIPv2 en las interfaces de routers requeridos. 
+>
+>Cada uno de los routers del laboratorio cuentan con el enrutamiento RIPv2, aignando diferentes redes en las interfaces y el serial de conexión.
+>
+>![Terminal PC](/pics/R1_RIP.png)
+>![Terminal PC](/pics/R2_RIP.png)
+>![Terminal PC](/pics/ISP_RIP.png)
+>
+> ### Acceso a la pagina web personalizada, con nombre de dominio proporcionado por el DNS
+>
+>Todos los dispositivos en la red pueden acceder a la pagina **JJC_JDG_CFG.net**  el cual es un domonio del DNS, pero en realidad es la IP de donde se encuentra alojada nuestra pagina web con HTML respectivo. 
+>
+>![Terminal PC](/pics/webOficinas.jpeg)
+>![Terminal PC](/pics/webCampus.jpeg)
+>![Terminal PC](/pics/webCasa.jpeg)
 >
 >
->![Terminal PC](/pics/imgIP_pc3.png)
 >
->
->![Terminal PC](/pics/imgIP_pc4.png)
->
-> ### Verificación de la creación y configuración de las VLAN 
->
->Para verificar qué las VLANs fueron creadas y están asignadas correctamente, nos dirigimos a cualquier switch. Ya que cada uno fue configurado individualmente de la misma forma. No usamos de Virtual Trunk Protocol (VTP) para configurar varios switches a la vez. 
-El comando de cisco `show vlan brief` luego de ingresar la contraseña del switch nos dará la información requerida, podemos ver cómo las interfaces fueron distribuidas entre las VLANs.
->
->![Terminal PC](/pics/imgVLAN.png)
->
-> ### Verificación de conectividad entre PCs en la misma VLAN
->
->Para verificar la conectividad debemos hacer un `ping` al IP del PC en la misma VLAN, para este caso usamos la de biblioteca, por lo que usaremos los PC  8 y 12. Desde el PC 8 en la command prompt hacemos `ping 190.35.1.4` (IP del PC 12)
->
->![Terminal PC](/pics/img_InterVLAN2.png)
->
->Como podemos ver, el host nos devuelve una respuesta de que la misma cantidad de paquetes enviados, fueron recibidos por lo que no hubo pérdida y tenemos conexión con el PC 12. También nos arroja la latencia de la conexión.
->
-> ### Verificación de conexión con la puerta de enlace 
->
->Para cada VLAN, en el router tenemos una puerta de enlace distinta (default gateway), por lo que podemos hacer la prueba dentro de esta, en este caso desde el PC 6 en la VLAN “Cuerpo docente/personal” nos conectaremos a su respectiva puerta de enlace 190.35.3.1 que se encuentra alojada en el Router.
->
->![Terminal PC](/pics/img_ptEnlace.png)
->
-> ### Verificación de conectividad entre dos PCs en VLANs distintas
->
->Realizamos `ping` a un computador fuera de la VLAN, este proceso se le llama IntraVLAN , en este caso el PC 12, el cual está en la VLAN de biblioteca, y lo conectaremos con el PC 3, la cual esta en la VLAN Estudiantes y tiene una IP de 190.35.2.2.
->
->![Terminal PC](/pics/img_IntraVLAN.png)
->
->En este caso podemos ver que al hacer el ping por primera vez este manda un paquete broadcast para preguntar cual es la MAC de la IP destino, una vez la encuentra la IP destino va a enviar un mensaje unicast a IP host, en nuestro caso el paquete usado para hacer broadcast se pierde, pero una vez pasa esto todos los paquetes llegan, luego al volver a hacer ping al mismo host destino en otra VLAN, entra directo ya que tiene guardado la MAC destino.
->
-> ## Verificación Telnet
->>
->>**PC a Router** 
->>>
->>Con ayuda del comando `telnet` seguido de la IP del dispositivo al que queremos hacer conexión remota podremos conectarnos directamente, como podemos observar en la imagen, nos mandó el banner que configuramos y nos da acceso al terminal del dispositivo.
->>
->>![Terminal PC](/pics/img_Router.png)
->
->>**PC a switch**
->>
->>Usamos el mismo comando, pero usamos las IP de los switches. En la imagen podemos ver cómo accedemos remotamente desde el PC5 a todos los switches sin problema.
->>
->>![Terminal PC](/pics/img_Switch.png)
->
+> ## Acceso a dispositivos IoT desde nodos terminales
+> Los dispositivos dentro de la red de "Mi casa inteligente" tienen acceso desde Desktop a IoT monitor donde pueden controlar los dispositivos del internet de las cosas.
+>![Terminal PC](/pics/IOT_working.png)
+>![Terminal PC](/pics/iot_cel.png)
+> ## Script 
+> Script corre del lado del cliente, y del lado del servidor.
+>![Terminal PC](/pics/socket.png)
+
 # Análisis de tráfico:
 ## Conectividad entre dos PCs en la misma VLAN:
 >![Terminal PC](/pics/imagen_an_1.png)
