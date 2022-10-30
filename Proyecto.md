@@ -111,6 +111,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >![Terminal PC](/pics/tabla_casa.png)
 >
 >**WAN**
+>
 >![Terminal PC](/pics/tabla_wan.png)
 >
 
