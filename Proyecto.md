@@ -28,6 +28,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >![Terminal PC](/pics/topologia_logica_casa.jpeg)
 >
 >**LAN Servidores**
+>
 >![Terminal PC](/pics/topologia_logica_servidores.jpeg)
 
 
@@ -55,6 +56,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >![Terminal PC](/pics/topologia_fisica_casa.png)
 >
 >**LAN Servidores**
+>
 >![Terminal PC](/pics/topologia_fisica_servidores.png)
 
 
@@ -378,6 +380,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >Para configurar el Lightweight Access Point lo único necesario es permitir que reciba su dirección por medio del servidor DHCP en su interfaz de Management y especificar la dirección IP del WLC que lo maneja.
 >
 >La comprobación rápida de estas configuraciones se ve así:
+>
 >![Terminal PC](/pics/vistalap.png)
 >
 > **Configuración de los hosts wireless:**
