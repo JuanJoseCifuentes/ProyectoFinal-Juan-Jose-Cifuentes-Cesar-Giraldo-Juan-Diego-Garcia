@@ -209,7 +209,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >SW1(config-if-range)#no shutdown
 >SW1(config-if-range)#exit
 >```
->Ponemos la contraseña del enable y guardamos la configuración.
+>Finalmente, guardamos la configuración.
 >```
 >SW1(config)#exit
 >SW1#copy running-config startup-config 
