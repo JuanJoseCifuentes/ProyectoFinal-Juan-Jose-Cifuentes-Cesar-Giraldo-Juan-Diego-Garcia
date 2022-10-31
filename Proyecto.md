@@ -36,7 +36,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >
 >Para la topología física, se separó cada LAN en edificios diferentes, sobre los que se dispusieron los dispositivos con cierto cuidado para mantener la disposición que tendrían en una situación real.
 >
->Las siguientes capturas ilustran lo dicho anteriormente, detallando la disposición de cada LAN. Nótese que para la red LAN de Campus se utilizó el cuarto de cableado estructurado presentado en el Workshop #4.
+>Las siguientes capturas ilustran lo dicho anteriormente, detallando la disposición de cada LAN. Nótese que para la red LAN de Campus se utilizó el cuarto de cableado estructurado presentado en el Workshop #4. 
 >
 >### **Topología Completa**
 >![Terminal PC](/pics/topologia_fisica.png)
