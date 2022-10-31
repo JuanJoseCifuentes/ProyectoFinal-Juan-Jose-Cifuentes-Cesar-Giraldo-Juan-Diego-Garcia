@@ -176,7 +176,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >SW1(config-vlan)#name NATIVA
 >SW1(config-vlan)#exit
 >```
->Asignamos las interfaces, a las respectivas VLANs basados en las indicaciones de la tabla presentada en la guía de laboratorio.
+>Asignamos las interfaces, a las respectivas VLANs basados en las indicaciones de la tabla presentada en la guía del proyecto.
 >```
 >SW1(config)#interface range fa0/7-10
 >SW1(config-if-range)#Switchport access vlan 35
