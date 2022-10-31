@@ -528,6 +528,9 @@ Obviamente, para la realización del laboratorio se utilizaron múltiples protoc
 
 Uno de los grandes desafíos que afrontamos como equipo fue la falta de conocimiento con respecto a la implementación práctica de los diferentes conceptos vistos en clase. Dedicamos bastante tiempo a la investigación de la configuración de ciertos dispositivos, en especial la red LAN de Oficinas y sus dispositivos de caracter wireless, a fin de entender y replicar las configuraciones que se nos pedían para el proyecto.
 
+Por otra parte aunque ya hemos manejado teoricamente conceptos como el DHCP, no los habiamos implementado y las guias en internet eran muy amplias, y en el proyecto teniamos requerimientos muy especificos, lo que hizo que comprender donde fallaba era mucho mas dificil.
+
+
 Otro reto muy importante fue las carencias que tiene Packet Tracer como software colaborativo, puesto que para que todos pudieramos contribuir al proyecto teníamos que esperar a que los demás finalizaran sus cambios por completo y facilitaran una copia de su archivo de trabajo.
 
 
@@ -536,6 +539,8 @@ Otro reto muy importante fue las carencias que tiene Packet Tracer como software
 Sobre todo, este proyecto nos permitió afianzar nuestros conocimientos acerca del desarrollo de redes de comunicación de datos. Mediante los diferentes retos asignados, se nos puso a prueba no solo con respecto a la configuración de los diferentes conceptos que vimos a lo largo del curso, sino que se nos forzó a desarrollar habilidades de resolución de problemas respecto a lo que redes de comunicación de datos respecta.
 
 Gracias a estas habilidades fue que fuimos capaces de resolver los problemas que se nos presentaban a medida que desarrollabamos el proyecto, y ahora somos capaces de identificar las principales causas de problemas y como resolverlas.
+
+Desarrollar una red tan robusta, con redes de redes nos permite ver desde otra perspectiva como funciona el internet, claramente a una menor escala, pero nos damos a una idea general que nos permite comprender otros tipos de sistemas con mucha mas facilidad. 
 
 
 # Bibliografía:
