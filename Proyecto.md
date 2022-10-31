@@ -398,7 +398,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >El resultado puede verse a continuación:
 >
 >![Terminal PC](/pics/vistawirelessofi.png)
-> ## Mi casa "Inteligente"
+> ## **Mi casa "Inteligente"**
 > Para la casa inteligente, debemos de configurar el router ISP para que este le de el direccionamiento dinamico (DHCP) a nuestros dispositivos, todo esto mediante unas lineas de comandos.
 >```
 >ISP(config)#
@@ -411,6 +411,35 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >![Terminal PC](/pics/Cable_Cloud.png)
 >Por otra parte, tenemos que configurar el Home Gateway donde le ponemos una IP, que termina siendo la default gateway de todos los dispositivos. Aunque por Internet puede obtener una IP por DHCP, dada por el ISP. En cada uno de los dispositivos toca especificar que la IP sera dinamica, ademas en la sección de Wireless, el SSID del Home Gateway y el servidor al que IoT server se va a albergar, tambien es el Home Gateway. En un hipotetico caso donde dispositivos de otra red, quieran acceder a este, el servidor deberá ser remoto.
 >![Terminal PC](/pics/iot.png)
+>
+> ## **Servidores**
+>
+>Para la configuración de la LAN de servidores, el enrutamiento no fue ningún problema, y no hubo que hacer más que otorgar direcciones estáticas a la interfaz del ISP conectada a la LAN y a cada uno de los servidores. 
+>
+>Vale la pena mencionar que las direcciones IP utilizadas en esta LAN provienen directamente de la primera red disponible después de realizar el proceso de subneteo con el rango especificado en la guía del proyecto.
+>
+>La configuración de los servidores se ve a continuación:
+>
+> **Configuración del servidor HTTP:**
+>
+>En cuanto a la configuración del servidor HTTP, aparte de asignarle una dirección, máscara de subred y puerta de enlace predeterminada fija, hubo que encender el servicio HTTP, apagar todos los demás, y añadir los archivos HTML deseados para generar la página.
+>
+>Así, ingresando la dirección IP que se le asignó, un usuario puede acceder a la página hosteada por el servidor desde el internet.
+>
+>A continuación puede verse una imagen de la configuración del servicio HTTP:
+>
+>![Terminal PC](/pics/http.png)
+>
+> **Configuración del servidor DNS:**
+>
+>De forma similar al servidor HTTP, antes de configurar el servicio DNS le asignamos de forma estática al servidor una dirección IP, una máscara de subred y una puerta de enlace predeterminada. Además de esto, se apagaron los demás servicios y, en el servicio de DNS, se añadió una entrada que permitiera traducir desde el nombre *JJC_JDG_CFG.net* a la dirección IP del servidor HTTP determinada en el paso anterior.
+>
+>Así, y una vez especificado como servidor DNS en un host, se puede acceder al servicio para transformar un nombre a una dirección IP y navegar más fácilmente por el internet..
+>
+>A continuación puede verse una imagen de la configuración del servicio DNS:
+>
+>![Terminal PC](/pics/DNS.png)
+>
 > ## **Enrutamiento**
 >
 >Para todos los routers de la toplogía se configuró el protocolo de enrutamiento RIPv2.
@@ -427,6 +456,11 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >ISP(config-router)#network 12.130.7.64
 >ISP(config-router)#network 209.175.105.1
 >```
+>
+>Vale la pena mencionar en este apartado que las redes que utilizamos para el router ISP son:
+>- 209.175.105.1: Primera red disponible del subneteo realizado para la red LAN de servidores.
+>- 9.9.6.18: Determinada por realizar el proceso de subneteo inverso dada la dirección del router 2. Básicamente, es la única dirección disponible dentro del rango al que pertenece la dirección dispuesta en el enlace serial del router 2.
+>- 12.130.7.1 y 12.130.7.65: Determinadas por el subneteo WAN y asignadas a los puertos conectados a las redes restantes (Campus y Casa Inteligente).
 
 # Verificaciones
 
@@ -454,7 +488,7 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >
 > ### Soportar el enrutamiento RIPv2 en las interfaces de routers requeridos. 
 >
->Cada uno de los routers del laboratorio cuentan con el enrutamiento RIPv2, aignando diferentes redes en las interfaces y el serial de conexión.
+>Cada uno de los routers del proyecto cuenta con el enrutamiento RIPv2, aignando diferentes redes en las interfaces y el serial de conexión.
 >
 >![Terminal PC](/pics/R1_RIP.png)
 >![Terminal PC](/pics/R2_RIP.png)
@@ -508,10 +542,23 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 
 # Protocolos:
 
-Obviamente, para la realización del laboratorio se utilizaron múltiples protocolos de red, sin embargo, muchos de ellos fueron explicados en el laboratorio anterior, y no consideramos necesario repetir sus definiciones, por lo que a continuación mencionaremos tan solo aquellos que son únicos del desarrollo de este laboratorio.
+Los protocolos de comunicación de datos son una serie de raglas vitales que dictan la forma en la que la comunicación de datos se lleva a cabo, y especifican los pasos y métodos a seguir por los diferentes paquetes para cumplir su objetivo en la red.
 
+A continuación presentamos la desripción de los protocolos más importantes que usamos en el proyecto.
+
+> **-IPv4:** Probablemente el protocolo más importante de toda nuestra red, consiste en definir una serie de direcciones de 32 bits para la transmisión organizada de información a través de redes físicas. Actualmente, y debido al enorme crecimiento del Internet en los últimos tiempos, se ha desarrollado otro protocolo conocido como IPv6, que tiene un número de direcciones totales que superan por órdenes de magnitud a las que puede generar en total el IPv4, sin embargo, para la red propuesta en el proyecto este protocolo es más que suficiente.
+>
+> **-DHCP:** Mediante este protocolo, un host es capaz de asignar a cada equipo dentro de su red LAN una IP única para su navegación por internet. Se realiza de manera automática y dinámica a todos los dispositivos que se conectan con la red y generan una solicitud, y aparte de dirección IP asigna gateways predeterminadas, máscaras de subred y otros parámetros de red.
+>
+> **-DNS:** Este protocolo se encarga de transformar un “nombre” o dirección de una página web al número IP bajo el que realmente está identificado ese dominio. Básicamente, permite relacionar IP’s con nombres para que nosotros los usuarios podamos memorizar solo los nombres y olvidar las IP’s, facilitando la navegación web.
+>
+> **-HTTP:** Este protocolo permite la transferencia de datos a través de archivos a través de la red. Básicamente, permite que la información de las páginas web montadas en servidores puedan ser accedidas desde la red mediante esquemas de petición-respuesta entre clientes y servidores.
+>
+> **-WPA2-PSK:** Uno de los muchos protocolos de seguridad informática. Como todo protocolo de seguridad, se encarga de establecer las claves que se utilizarán para cifrar la comunicación entre punto de acceso y el terminal del usuario. WPA2 es un protocolo que soluciona las vulnerabilidades tanto de su antecesor, el WPA, como del primer algoritmo de seguridad, el WEP. Utiliza un método de encriptación más sofisticado conocido como AES (Advanced Encryption Standard) que el TKIP, que venían utilizando sus antecesores. Esta versión en específico, notada por terminar en -PSK (Pre-Shared Key) tiene una clave precompartida en vez de una clave diferente para cada usuario como en su versión original, y la escogimos puesto que es la más cómoda para las redes de hogar en las que todos los miembros conocen la misma frase contraseña.
+>
 > **-STP:** A grandes rasgos, este protocolo tiene como propósito evitar las tormentas de multidifusión, momentos en los cuales un mensaje broadcast queda atrapado en un bucle dentro de la red, y genera tráfico de forma perpetua.
 >Para conseguirlo, este protocolo se aplica a cualquier ciclo que pueda causar esto, en nuestro caso, se aplica al ciclo creado por los 3 switches, y consiste en escoger un switch principal, conocido como “Puente raíz”, que será el de menos ID de prioridad y MAC, y luego permitir que, a nivel lógico, se mantengan activos solo los puertos que forman parte de la ruta de menor costo desde cualquier otro switch al puente raíz. Finalmente, todos aquellos puertos que tienen una conexión que no es usada en ninguna ruta de coste menor son cerrados desde uno solo de los extremos, aquel que esté en el dispositivo de menor ID de prioridad y MAC.
+>
 >Los puertos que salen a la ruta de menor costo se llaman puertos raíz, los puertos a los que llega una conexión desde un puerto raíz se conocen como puertos designados, y aquellos bloqueados por el protocolo se conocen como puertos alternativos.
 >
 > **-VTP:** A pesar de no haber sido utilizado en la práctica merece una mención. Es un protocolo que permite que la información de configuración de VLAN se transmita a lo largo de todos los switches de la red, de forma que la versión más nueva se actualiza en todos los dispositivos sin necesidad de tener que configurarlos manualmente, configurando solo uno de ellos.
@@ -530,9 +577,9 @@ Uno de los grandes desafíos que afrontamos como equipo fue la falta de conocimi
 
 Por otra parte aunque ya hemos manejado teoricamente conceptos como el DHCP, no los habiamos implementado y las guias en internet eran muy amplias, y en el proyecto teniamos requerimientos muy especificos, lo que hizo que comprender donde fallaba era mucho mas dificil.
 
-
 Otro reto muy importante fue las carencias que tiene Packet Tracer como software colaborativo, puesto que para que todos pudieramos contribuir al proyecto teníamos que esperar a que los demás finalizaran sus cambios por completo y facilitaran una copia de su archivo de trabajo.
 
+El último reto significativo que afrontamos fue el uso de la herramienta de simulación en Packet Tracer, puesto que intentar entender la información que portan y transmiten los paquetes en cada punto diferente de la red se convierte en una tarea muy compleja cuando se intenta reconocer cada protocolo que está interfiriendo en la comunicación de datos y cuales son los cambios puntuales que generan en los paquetes enviados.
 
 # Conclusiones:
 
@@ -540,8 +587,9 @@ Sobre todo, este proyecto nos permitió afianzar nuestros conocimientos acerca d
 
 Gracias a estas habilidades fue que fuimos capaces de resolver los problemas que se nos presentaban a medida que desarrollabamos el proyecto, y ahora somos capaces de identificar las principales causas de problemas y como resolverlas.
 
-Desarrollar una red tan robusta, con redes de redes nos permite ver desde otra perspectiva como funciona el internet, claramente a una menor escala, pero nos damos a una idea general que nos permite comprender otros tipos de sistemas con mucha mas facilidad. 
+Desarrollar una red tan robusta, con redes de redes nos permite ver desde otra perspectiva como funciona el internet, claramente a una menor escala, pero nos damos a una idea más asentada en la realidad que nos permite comprender el montaje y topología general de otros tipos de sistemas con mucha mas facilidad. 
 
+Por último, este proyecto nos ayudó en gran medida a entender y deducir el funcionamiento específico de los múltiples protocolos de red vistos cuando dejan de estar aislados y se juntan los unos con otros en una red WAN compleja.
 
 # Bibliografía:
 
@@ -551,5 +599,20 @@ Desarrollar una red tan robusta, con redes de redes nos permite ver desde otra p
 
 -[3]Sunny Classroom. How STP Elects Root Bridge with Hello BPDU? (7 de julio de 2019). [Video en línea]. Disponible: https://www.youtube.com/watch?v=BkGEwrzIK4g
 
+-[4] Concepto. 2021. Protocolo Informático - Concepto, propiedades y ejemplos. [online] Available at: <https://concepto.de/protocolo-informatico/>.
 
+-[5] De León Guerrero, E., 2016. Redes inalámbricas WPA/WPA2 ¿La protección ya no es suficiente? | Revista .Seguridad. [online] Revista.seguridad.unam.mx. Available at: <https://revista.seguridad.unam.mx/numero-19/redes-inalambricas-wpawpa2-la-proteccion-ya-no-es-suficiente>.
 
+-[6] Calderon, C., Calderon, C. and Calderon, C., 2021. ¿Qué son los dispositivos de Red y para qué sirven?. [online] Redes de Computadores. Available at: <https://www.plotandesign.com/redes/dispositivos-de-red/>.
+
+-[7] Sepúlveda, M., 2022. Armando un Servidor en Cisco Packet Tracer - eClassVirtual - Cursos Cisco en línea. [online] eClassVirtual - Cursos Cisco en línea. Available at: <https://eclassvirtual.com/armando-un-servidor-en-cisco-packet-tracer/>.
+
+-[8] L. Peterson, and  B. Davie, Computer Network: a systems approach, 5ed. Burlington, USA: Elsevier, 2012, Ch 8. 
+
+-[9] Walton, A., 2022. Cable Directo, Cable Cruzado y Cable Consola ¿Cuáles son las diferencias?. [online] CCNA. Available at: <https://ccnadesdecero.es/cable-directo-cruzado-y-consola-diferencias/>.
+
+-[10]Configurar.pro. 2022. ▷ ¿Como Configurar Servidor Web Packet Tracer? 【 agosto 2022 】 Configurar.pro. [online] Available at: <https://configurar.pro/servidores/como-configurar-servidor-web-packet-tracer>.
+
+-[11]R. Avellaneda. "ShieldSquare Captcha". ShieldSquare Captcha. https://networklessons.com/cisco/ccna-200-301/cisco-wireless-lan-controller-wlc-basic-configuration.
+
+-[12]RKiLAB. Configuring Wireless LAN controller using Radius & DHCP server for enable WPA&WPA2 security.(1 de diciembre de 2019). [Video en línea]. Disponible: https://www.youtube.com/watch?v=TKhSIdyBbHY&t=1s
