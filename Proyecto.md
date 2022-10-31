@@ -513,32 +513,56 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >![Terminal PC](/pics/socket.png)
 
 # Análisis de tráfico:
-## Conectividad entre dos PCs en la misma VLAN:
->![Terminal PC](/pics/imagen_an_1.png)
+## Acceso a la pagina web personalizada desde campus, casa inteligente y oficinas, con nombre del dominio proporcionado por el DNS:
+> ### Acceso desde el campus 
 >
->El paquete salió del PC1 y tiene como destino el PC5, como se puede ver, ambos PCs pertenecen a la misma VLAN pues sus direcciones IP están dentro del rango de IP ‘190.35.4.x’, el cual corresponde a la VLAN 55. 
+>![Terminal PC](/pics/Pasted_Graphic_1.png)
 >
->El paquete paso por nodos intermedios, llego al switch 1, posteriormente al switch 2, y luego al PC5. Como se puede ver también se envió un paquete al PC9 debido a que este pertenece a la misma VLAN, pero este fue rechazado.
+>Como se puede ver en esta imagen, viaja a lo largo de la red un paquete, que sale del PC1 tras ingresar la URL en el navegador, pasa por el switch 1, luego llega al switch 3, luego al router 1, y después al ISP, de aquí pasa al switch 0 de la LAN de los servidores, luego pasa por el servidor DNS y vuelve hasta el PC1. 
 >
->![Terminal PC](/pics/imagen_an_2.png)
+>En la siguiente imagen se observa el paquete justo después de pasar por el DNS, en rojo esta el DNS query y en azul la respuesta, como se puede ver, la respuesta lleva la dirección IP del servidor web.
 >
->Al Salir del PC4 se evidencia que el paquete esta siendo devuelto al PC1 pues se indica la Dirección Mac Destino, la cual coincide con la del PC1
+>![Terminal PC](/pics/Pasted_Graphic_2.png)
 >
-## Conectividad con la puerta de enlace:
->![Terminal PC](/pics/imagen_an_3.png)
+>Una vez el trabajo del protocolo DNS se ha completado, todo lo que queda son una serie de paquetes de petición y respuesta HTTP entre el PC y el servidor web.
 >
->Como se evidencia aqui, el paquete fue enviado por el PC12, dirigido a la dirección IP de la default gateway. Posteriormente viaja a el switch 4, luego al switch 3 y finalmente al router. Luego toma el mismo camino de vuelta al PC12, así comprobando la conexión entre el PC12 y la default gateway.
+> ### Acceso desde la casa inteligente 
 >
-## Conectividad entre dos PCs en VLANs distintas:
->![Terminal PC](/pics/imagen_an_4.png)
+>![Terminal PC](/pics/Pasted_Graphic_3.png)
 >
->En este caso se esta haciendo ping desde el PC3 al PC12 puesto que estos pertenecen a la VLAN 35 y a la VLAN 20 respectivamente. 
+>Desde la casa inteligente también se puede acceder. En este caso, primero se lleva a cabo el protocolo DNS, aquí se envia un paquete inicialmente al Home Gateway, el cual luego lo envia un mensaje Broadcast el cual es rechazado por todos los dispositivos que comprueben que no son el destinatario. Después de esto el proceso es igual al anterior, el paquete llega al servidor DNS, el DNS devuelve una respuesta y la Laptop obtiene la dirección IP del servidor Web. Posteriormente envia el request de HTTP y todos los paquetes con información comienzan a ser enviados del servidor a la Home Gateway, que los vuelve a enviar en mensajes Broadcast, y finalmente llega a la Laptop.
 >
->Inicialmente se lleva a cabo el protocolo ARP, por lo cual se envia un mensaje broadcast por todas las VLANs para encontrar la dirección MAC del PC12, por esta razón se pierde el primer paquete.
+>![Terminal PC](/pics/Pasted_Graphic_4.png)
 >
->![Terminal PC](/pics/imagen_an_5.png)
+> ### Acceso desde la oficina
 >
->Posteriormente, se comienzan a enviar solamente mensajes de peticion respuesta, puesto que, gracias al protocolo ARP, ya fue encontrada la direccion MAC del PC12. Estos paquetes son todos enviados y recibidos de manera exitosa, por lo que se comprueba la conexion entre el PC3 y el PC12.
+>![Terminal PC](/pics/Pasted_Graphic_5.png)
+>
+>También se puede acceder desde la oficina. El proceso es casi idéntico al de la casa inteligente, la diferencia en este caso es que los paquetes que llegan al LAP desde uno de los dispositivos conectados no son distribuidos mediante un mensaje Broadcast, sino que el paquete llega directamente al destinatario.
+>
+## Acceso a dispositivos IoT desde nodos terminales:
+>![Terminal PC](/pics/Pasted_Graphic_6.png)
+>
+>El dispositivo  envia un http request a la Home Gateway para hacer un upgrade la conexión a un Web Socket
+>
+>![Terminal PC](/pics/Pasted_Graphic_7.png)
+>
+>La Home Gateway envia un http request a todos los dispositivos para hacer el upgrade
+>
+>![Terminal PC](/pics/Pasted_Graphic_8.png)
+>
+>Posteriormente comienza a enviar mensajes Broadcast con la laptop como destinatario. 
+>
+>![Terminal PC](/pics/Pasted_Graphic_9.png)
+>
+>Al hacer cambios o cambiar el estado de los dispositivos IoT, la laptop envía un mensaje al Home Gateway y el siguiente mensaje Broadcast de este, realiza el cambio. Sin embargo, estos mensajes no van en forma de request o respuesta HTTP, solo llegan información, y esto pasa debido a que la conexión es de WebSocket. 
+>
+## Script:
+>![Terminal PC](/pics/Pasted_Graphic_10.png)
+>
+>Al ejecutar el scripten socket TCP en el PC1 y al conectarse con el servidor socket-TCP corriendo en el Servidor Web vemos que el flujo comienza estableciendo una conexión directa entre el PC1 y el Servidor Web. Posteriormente se comienzan a enviar mensajes de ida y vuelta por medio del protocolo TCP.
+>
+
 
 # Protocolos:
 
