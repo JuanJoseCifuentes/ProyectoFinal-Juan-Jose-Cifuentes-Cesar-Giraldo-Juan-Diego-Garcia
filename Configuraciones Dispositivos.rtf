@@ -1,0 +1,1260 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Bold;
+\f3\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Documentaci\'f3n de configuraci\'f3n de los dispositivos de red\
+\
+SWITCH 0:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Building configuration...\
+\
+Current configuration : 2237 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname SW4\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+interface FastEthernet0/1\
+ shutdown\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/9\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 55\
+!\
+interface GigabitEthernet0/1\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 191.55.0.5 255.255.255.0\
+!\
+ip default-gateway 191.55.0.1\
+!\
+banner motd ^CSe encuentra configurando el Switch 4. Ingrese la contrasena.^C\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+	
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+SWITCH
+\f2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2  1:
+\f3\b0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Building configuration...\
+\
+Current configuration : 2227 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname SW1\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+interface FastEthernet0/1\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/9\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 55\
+!\
+interface GigabitEthernet0/1\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 191.55.0.2 255.255.255.0\
+!\
+ip default-gateway 191.55.0.1\
+!\
+banner motd ^CSe encuentra configurando el Switch 1. Ingrese la contrasena.^C\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+
+\f2\b SWITCH 2:\
+
+\f1\b0 Building configuration...\
+\
+Current configuration : 2237 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname SW2\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+interface FastEthernet0/1\
+ shutdown\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/9\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 55\
+!\
+interface GigabitEthernet0/1\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 191.55.0.3 255.255.255.0\
+!\
+ip default-gateway 191.55.0.1\
+!\
+banner motd ^CSe encuentra configurando el Switch 2. Ingrese la contrasena.^C\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+
+\f2\b SWITCH 3:
+\f1\b0 \
+Building configuration...\
+\
+Current configuration : 2237 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname SW3\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+interface FastEthernet0/1\
+ shutdown\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/9\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 55\
+!\
+interface GigabitEthernet0/1\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 191.55.0.4 255.255.255.0\
+!\
+ip default-gateway 191.55.0.1\
+!\
+banner motd ^CSe encuentra configurando el Switch 2. Ingrese la contrasena.^C\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+
+\f2\b SWITCH 4:\
+
+\f1\b0 Building configuration...\
+\
+Current configuration : 2237 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname SW4\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+interface FastEthernet0/1\
+ shutdown\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 99\
+ switchport trunk native vlan 99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/9\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 35\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 20\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 40\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 55\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 55\
+!\
+interface GigabitEthernet0/1\
+!\
+interface GigabitEthernet0/2\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 191.55.0.5 255.255.255.0\
+!\
+ip default-gateway 191.55.0.1\
+!\
+banner motd ^CSe encuentra configurando el Switch 4. Ingrese la contrasena.^C\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 ROUTER 1:
+\f3\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Building configuration...\
+\
+Current configuration : 1557 bytes\
+!\
+version 15.1\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname R1\
+!\
+!\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+ip cef\
+no ipv6 cef\
+!\
+!\
+!\
+!\
+license udi pid CISCO2811/K9 sn FTX1017MV7E-\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode pvst\
+!\
+!\
+!\
+!\
+!\
+!\
+interface FastEthernet0/0\
+ no ip address\
+ duplex auto\
+ speed auto\
+!\
+interface FastEthernet0/1\
+ no ip address\
+ duplex auto\
+ speed auto\
+!\
+interface FastEthernet0/1.20\
+ encapsulation dot1Q 20\
+ ip address 191.55.2.1 255.255.255.0\
+ ip helper-address 191.55.4.2\
+!\
+interface FastEthernet0/1.35\
+ encapsulation dot1Q 35\
+ ip address 191.55.1.1 255.255.255.0\
+ ip helper-address 191.55.4.2\
+!\
+interface FastEthernet0/1.40\
+ encapsulation dot1Q 40\
+ ip address 191.55.3.1 255.255.255.0\
+ ip helper-address 191.55.4.2\
+!\
+interface FastEthernet0/1.55\
+ encapsulation dot1Q 55\
+ ip address 191.55.4.1 255.255.255.0\
+ ip helper-address 191.55.4.2\
+!\
+interface FastEthernet0/1.99\
+ encapsulation dot1Q 99 native\
+ ip address 191.55.0.1 255.255.255.0\
+!\
+interface Serial0/3/0\
+ ip address 12.130.7.2 255.255.255.192\
+!\
+interface Serial0/3/1\
+ no ip address\
+ clock rate 2000000\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+router rip\
+ version 2\
+ network 12.0.0.0\
+ network 191.55.0.0\
+ no auto-summary\
+!\
+ip classless\
+!\
+ip flow-export version 9\
+!\
+!\
+!\
+no cdp run\
+!\
+banner motd ^CSe encuentra configurando el Router 1. Ingrese la contrasena.^C\
+!\
+!\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line aux 0\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+end\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 ROUTER ISP:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Building configuration...\
+\
+Current configuration : 1166 bytes\
+!\
+version 15.1\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname ISP\
+!\
+!\
+!\
+enable password cisco\
+!\
+!\
+!\
+ip dhcp pool WAN\
+ network 12.130.7.64 255.255.255.192\
+ default-router 12.130.7.65\
+ dns-server 209.175.105.3\
+!\
+!\
+!\
+no ip cef\
+no ipv6 cef\
+!\
+!\
+!\
+!\
+license udi pid CISCO2811/K9 sn FTX101797O0-\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode pvst\
+!\
+!\
+!\
+!\
+!\
+!\
+interface FastEthernet0/0\
+ ip address 209.175.105.1 255.255.255.224\
+ duplex auto\
+ speed auto\
+!\
+interface FastEthernet0/1\
+ ip address 12.130.7.65 255.255.255.192\
+ duplex auto\
+ speed auto\
+!\
+interface Serial0/3/0\
+ ip address 12.130.7.1 255.255.255.192\
+ clock rate 2000000\
+!\
+interface Serial0/3/1\
+ ip address 9.9.6.18 255.255.255.252\
+ clock rate 2000000\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+router rip\
+ version 2\
+ network 9.0.0.0\
+ network 12.0.0.0\
+ network 209.175.105.0\
+ no auto-summary\
+!\
+ip classless\
+!\
+ip flow-export version 9\
+!\
+!\
+!\
+no cdp run\
+!\
+banner motd ^CEsta configurando el Router ISP^C\
+!\
+!\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line aux 0\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+end\
+\
+
+\f2\b Router 2:\
+
+\f1\b0 Building configuration...\
+\
+Current configuration : 1234 bytes\
+!\
+version 15.1\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname R2\
+!\
+!\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+no ip cef\
+no ipv6 cef\
+!\
+!\
+!\
+!\
+license udi pid CISCO2811/K9 sn FTX1017PD42-\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode pvst\
+!\
+!\
+!\
+!\
+!\
+!\
+interface FastEthernet0/0\
+ no ip address\
+ duplex auto\
+ speed auto\
+ shutdown\
+!\
+interface FastEthernet0/1\
+ no ip address\
+ duplex auto\
+ speed auto\
+!\
+interface FastEthernet0/1.5\
+ encapsulation dot1Q 5\
+ ip address 192.168.10.1 255.255.255.0\
+ ip helper-address 192.168.205.50\
+!\
+interface FastEthernet0/1.200\
+ encapsulation dot1Q 200 native\
+ ip address 192.168.205.1 255.255.255.0\
+ ip helper-address 192.168.205.50\
+!\
+interface Serial0/3/0\
+ ip address 9.9.6.17 255.255.255.252\
+!\
+interface Serial0/3/1\
+ no ip address\
+ clock rate 2000000\
+ shutdown\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+router rip\
+ version 2\
+ network 9.0.0.0\
+ network 192.168.10.0\
+ network 192.168.205.0\
+ no auto-summary\
+!\
+ip classless\
+!\
+ip flow-export version 9\
+!\
+!\
+!\
+banner motd ^CEsta configurando el Router 2^C\
+!\
+!\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line aux 0\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+end\
+\
+
+\f2\b Multilayer switch\
+
+\f1\b0 Building configuration...\
+\
+Current configuration : 2430 bytes\
+!\
+version 16.3.2\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname ML-SW\
+!\
+!\
+enable password cisco\
+!\
+!\
+!\
+!\
+!\
+!\
+no ip cef\
+ip routing\
+!\
+no ipv6 cef\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+!\
+!\
+!\
+!\
+!\
+!\
+interface GigabitEthernet1/0/1\
+ switchport access vlan 200\
+ switchport trunk native vlan 200\
+ switchport mode trunk\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/2\
+ switchport trunk native vlan 200\
+ switchport mode trunk\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/3\
+ switchport trunk native vlan 200\
+ switchport mode trunk\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/4\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/5\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/6\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/7\
+!\
+interface GigabitEthernet1/0/8\
+!\
+interface GigabitEthernet1/0/9\
+!\
+interface GigabitEthernet1/0/10\
+ switchport access vlan 200\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/11\
+ switchport access vlan 200\
+!\
+interface GigabitEthernet1/0/12\
+!\
+interface GigabitEthernet1/0/13\
+!\
+interface GigabitEthernet1/0/14\
+!\
+interface GigabitEthernet1/0/15\
+!\
+interface GigabitEthernet1/0/16\
+!\
+interface GigabitEthernet1/0/17\
+!\
+interface GigabitEthernet1/0/18\
+!\
+interface GigabitEthernet1/0/19\
+!\
+interface GigabitEthernet1/0/20\
+!\
+interface GigabitEthernet1/0/21\
+ switchport access vlan 5\
+!\
+interface GigabitEthernet1/0/22\
+ switchport trunk native vlan 200\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/23\
+ switchport trunk native vlan 200\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/0/24\
+ switchport trunk native vlan 200\
+ switchport mode access\
+ switchport nonegotiate\
+!\
+interface GigabitEthernet1/1/1\
+!\
+interface GigabitEthernet1/1/2\
+!\
+interface GigabitEthernet1/1/3\
+!\
+interface GigabitEthernet1/1/4\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan200\
+ mac-address 00d0.ffaa.1101\
+ ip address 192.168.205.100 255.255.255.0\
+!\
+ip default-gateway 192.168.205.1\
+ip classless\
+!\
+ip flow-export version 9\
+!\
+!\
+!\
+banner motd ^CEsta configurando el Multilayer Switch^C\
+!\
+!\
+!\
+!\
+!\
+line con 0\
+ password cisco\
+ login\
+!\
+line aux 0\
+!\
+line vty 0 4\
+ password cisco\
+ login\
+line vty 5 15\
+ password cisco\
+ login\
+!\
+!\
+!\
+!\
+end\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx5898\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+}

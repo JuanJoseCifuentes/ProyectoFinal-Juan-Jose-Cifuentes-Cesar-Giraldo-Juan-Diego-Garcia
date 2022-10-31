@@ -270,6 +270,14 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >
 >![Terminal PC](/pics/vistarouter1.png)
 >
+> **Configuración Servidor DHCP:**
+>Para el servidor DCHP debemos ponerle de dirección estatica la dirección que en el router pusimos como ip-helper-address y la default gateway es la que interfaz del router que se asigna, en nuestro caso como el servidor se encontraba en la VLAN 55, teniamos que darle la default gateway correspondiente.
+>En la sección de servicios apagabamos todos excepto DHCP, en esta configurabamos por VLAN las IPs que podian tener, su default gateway, nombre, cantidad de usuarios y el servidor DNS con el que va a traducir las IPs a URLs.
+>![Terminal PC](/pics/dhcp_pool.png)
+>Aunque para este caso donde nuestro servidor hace parte de una de las VLANs a la que otros computadores confian para que se les asigne IP dinamicamente, toca tener en cuenta el server pool, este es en el que se encuentra nuestro servidor por esto mismo no tenemos VLAN 55, ya que el server pool hace de este, ademas que tiene un usuario menos, y una IP inicial mas arriba, ya que no puede asignar a partir del 2.
+>
+>
+>
 >
 > **Configuración de los PCs:**
 > 
@@ -390,7 +398,19 @@ En la primera parte, se describirá a detalle los procesos tomados para plantear
 >El resultado puede verse a continuación:
 >
 >![Terminal PC](/pics/vistawirelessofi.png)
->
+> ## Mi casa "Inteligente"
+> Para la casa inteligente, debemos de configurar el router ISP para que este le de el direccionamiento dinamico (DHCP) a nuestros dispositivos, todo esto mediante unas lineas de comandos.
+>```
+>ISP(config)#
+>ISP(config)#ip dhcp pool WAN
+>ISP(dhcp-config)#network 12.130.7.64 255.255.255.192
+>ISP(dhcp-config)#default-router 12.130.7.65
+>ISP(dhcp-config)#dns-server 209.175.105.3
+> ```
+> Por parte del cloud es por el concepto, de lo que esta ocurriendo, si lo vemos desde otra perspectiva, el ISP y los servidores es toda la parte con la que nunca interactua el usuario, es el internet, el como cientos o miles de routers se interconectan para terminar llegando a en nuestro caso la casa inteligente. Por parte del cloud lo unico que teniamos que configurar era la entrada de el proveedor de la red, que es por cable, y en las conexiones toca especificar cual es la conexión por donde sale y por donde entra. Desde la entrada que es Coaxial 7 al puerto Ethernet 6.
+>![Terminal PC](/pics/Cable_Cloud.png)
+>Por otra parte, tenemos que configurar el Home Gateway donde le ponemos una IP, que termina siendo la default gateway de todos los dispositivos. Aunque por Internet puede obtener una IP por DHCP, dada por el ISP. En cada uno de los dispositivos toca especificar que la IP sera dinamica, ademas en la sección de Wireless, el SSID del Home Gateway y el servidor al que IoT server se va a albergar, tambien es el Home Gateway. En un hipotetico caso donde dispositivos de otra red, quieran acceder a este, el servidor deberá ser remoto.
+>![Terminal PC](/pics/iot.png)
 > ## **Enrutamiento**
 >
 >Para todos los routers de la toplogía se configuró el protocolo de enrutamiento RIPv2.
